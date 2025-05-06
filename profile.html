@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Lamp Times</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <!-- Google Fonts for newspaper style typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="date">May 15, 2024</div>
+                <div class="weather">Partly Cloudy, 72°F</div>
+            </div>
+            <div class="masthead">
+                <h1 class="site-title">The Lamp Times</h1>
+                <p class="site-tagline">Illuminating News for Discerning Readers</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="category.html?category=Politics">Politics</a></li>
+                    <li><a href="category.html?category=Business">Business</a></li>
+                    <li><a href="category.html?category=Technology">Technology</a></li>
+                    <li><a href="category.html?category=Arts">Arts</a></li>
+                    <li><a href="category.html?category=Opinion">Opinion</a></li>
+                    <li><a href="profile.html" id="profile-link" class="active">My Profile</a></li>
+                    <li><a href="#" id="signout-link">Sign Out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <h2 class="section-title">My Profile</h2>
+                    <div class="profile-info">
+                        <h3 id="user-name">Loading...</h3>
+                        <p id="user-email">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="profile-tabs">
+                    <button class="tab-btn active" data-tab="bookmarks">My Bookmarks</button>
+                    <button class="tab-btn" data-tab="settings">Account Settings</button>
+                </div>
+
+                <div id="bookmarks" class="tab-content">
+                    <h3>Bookmarked Articles</h3>
+                    <div id="bookmarked-articles" class="articles-grid">
+                        <div class="article-loading">Loading your bookmarks...</div>
+                    </div>
+                </div>
+
+                <div id="settings" class="tab-content hidden">
+                    <h3>Account Settings</h3>
+                    <form id="profile-form" class="admin-form">
+                        <div class="form-group">
+                            <label for="profile-name">Full Name</label>
+                            <input type="text" id="profile-name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profile-email">Email</label>
+                            <input type="email" id="profile-email" name="email" required disabled>
+                            <p class="form-help">Email cannot be changed</p>
+                        </div>
+
+                        <div id="profile-error" class="error-message hidden"></div>
+
+                        <button type="submit" class="btn">Update Profile</button>
+                    </form>
+
+                    <div class="password-section">
+                        <h3>Change Password</h3>
+                        <form id="password-form" class="admin-form">
+                            <div class="form-group">
+                                <label for="current-password">Current Password</label>
+                                <input type="password" id="current-password" name="current" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="new-password">New Password</label>
+                                <input type="password" id="new-password" name="new" required minlength="6">
+                                <p class="form-help">Password must be at least 6 characters long</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm New Password</label>
+                                <input type="password" id="confirm-password" name="confirm" required>
+                            </div>
+
+                            <div id="password-error" class="error-message hidden"></div>
+
+                            <button type="submit" class="btn">Change Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-minimal">
+                <div class="footer-info">
+                    <span>The Lamp Times</span> |
+                    <span>123 News Street, Mediaville</span> |
+                    <span>contact@Lamp Timess.com</span>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2024 The Lamp Times. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

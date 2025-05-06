@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - Lamp Times</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- Google Fonts for newspaper style typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="date">May 15, 2024</div>
+                <div class="weather">Partly Cloudy, 72°F</div>
+            </div>
+            <div class="masthead">
+                <h1 class="site-title">The Lamp Times</h1>
+                <p class="site-tagline">Illuminating News for Discerning Readers</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="category.html?category=Politics">Politics</a></li>
+                    <li><a href="category.html?category=Business">Business</a></li>
+                    <li><a href="category.html?category=Technology">Technology</a></li>
+                    <li><a href="category.html?category=Arts">Arts</a></li>
+                    <li><a href="category.html?category=Opinion">Opinion</a></li>
+                    <li><a href="profile.html" id="profile-link" class="hidden">My Profile</a></li>
+                    <li><a href="auth.html" id="auth-link" class="active">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="signin">Sign In</button>
+                    <button class="tab-btn" data-tab="signup">Sign Up</button>
+                </div>
+
+                <div id="signin" class="tab-content">
+                    <h2 class="section-title">Sign In</h2>
+                    <form id="signin-form" class="admin-form">
+                        <div class="form-group">
+                            <label for="signin-email">Email</label>
+                            <input type="email" id="signin-email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signin-password">Password</label>
+                            <input type="password" id="signin-password" name="password" required>
+                        </div>
+
+                        <div id="signin-error" class="error-message hidden"></div>
+
+                        <button type="submit" class="btn">Sign In</button>
+                    </form>
+                </div>
+
+                <div id="signup" class="tab-content hidden">
+                    <h2 class="section-title">Sign Up</h2>
+                    <form id="signup-form" class="admin-form">
+                        <div class="form-group">
+                            <label for="signup-name">Full Name</label>
+                            <input type="text" id="signup-name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" name="password" required minlength="6">
+                            <p class="form-help">Password must be at least 6 characters long</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-confirm">Confirm Password</label>
+                            <input type="password" id="signup-confirm" name="confirm" required>
+                        </div>
+
+                        <div id="signup-error" class="error-message hidden"></div>
+
+                        <button type="submit" class="btn">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-minimal">
+                <div class="footer-info">
+                    <span>The Lamp Times</span> |
+                    <span>123 News Street, Mediaville</span> |
+                    <span>contact@Lamp Timess.com</span>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2024 The Lamp Times. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

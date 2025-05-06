@@ -1,0 +1,88 @@
+/*
+ * fixes.css - CSS fixes for specific issues
+ * Lamp Times Newspaper Website
+ */
+
+/* Fix for horizontal lines between sections on the home page */
+
+/* Remove the border from the two-column layout */
+.home-page .two-column-layout {
+    border-top: none;
+}
+
+/* Remove the border from the featured article */
+.home-page .featured-article {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Completely remove the border from section titles on the home page */
+.home-page .section-title {
+    border-bottom: none !important;
+    position: relative;
+    padding-bottom: 0.25rem;
+}
+
+/* Keep the decorative line under section titles but make it shorter */
+.home-page .section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-accent);
+}
+
+/* Remove borders from skeleton cards */
+.home-page .skeleton-card {
+    border: none;
+    border-bottom: none;
+}
+
+/* Add some spacing between the featured article and the two-column layout */
+.home-page .two-column-layout {
+    margin-top: 1rem;
+    position: relative;
+}
+
+/* Ensure no pseudo-elements are creating lines */
+.home-page .two-column-layout::before,
+.home-page .two-column-layout::after {
+    content: none !important;
+    display: none !important;
+    border: none !important;
+}
+
+/* Remove borders from article cards on the home page */
+.home-page .article-card {
+    border-bottom: none;
+}
+
+/* Remove dotted borders from article meta on the home page */
+.home-page .article-card .article-meta {
+    border-bottom: none;
+}
+
+/* Remove any horizontal lines between featured article and two-column layout */
+.home-page .featured-article + .two-column-layout {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* Remove any horizontal rules that might be added by JavaScript */
+.home-page hr {
+    display: none;
+}
+
+/* Remove any horizontal lines that might be added by the browser */
+.home-page .main-articles::before,
+.home-page .main-articles::after,
+.home-page .sidebar::before,
+.home-page .sidebar::after,
+.home-page .two-column-layout::before,
+.home-page .two-column-layout::after {
+    display: none;
+    content: none;
+    border: none;
+}

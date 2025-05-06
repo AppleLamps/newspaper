@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Replace with your article title",
+    "author": "Replace with author name",
+    "category": "Politics",
+    "excerpt": "Replace with a brief summary (1-2 sentences)",
+    "content": [
+      "Replace with first paragraph of your article",
+      "Replace with second paragraph of your article",
+      "Add more paragraphs as needed"
+    ]
+  },
+  {
+    "title": "Second Article Title",
+    "author": "Another Author",
+    "category": "Business",
+    "excerpt": "Brief summary of the second article",
+    "content": [
+      "First paragraph of second article",
+      "Second paragraph of second article"
+    ]
+  }
+]

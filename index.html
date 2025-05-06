@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamp Times - Illuminating News</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/fixes.css">
+    <!-- Google Fonts for newspaper style typography -->
+    <!-- CLS Fix: Improved font loading strategy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Load with font-display: swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap&display=optional" rel="stylesheet">
+
+    <!-- Fallback for browsers that don't support JS-based loading -->
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- Add font-face declarations with font-display: swap -->
+    <style>
+        /* CLS Fix: Complete font-face declarations with proper font-display */
+        @font-face {
+            font-family: 'Playfair Display';
+            font-display: swap;
+            src: local('Playfair Display');
+        }
+        @font-face {
+            font-family: 'Source Serif Pro';
+            font-display: swap;
+            src: local('Source Serif Pro');
+        }
+        @font-face {
+            font-family: 'Libre Baskerville';
+            font-display: swap;
+            src: local('Libre Baskerville');
+        }
+
+        /* CLS Fix: Add font-size-adjust to stabilize layout during font loading */
+        body {
+            font-size-adjust: 0.5;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size-adjust: 0.54;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="date">May 15, 2024</div>
+                <div class="weather">Partly Cloudy, 72°F</div>
+            </div>
+            <div class="masthead">
+                <h1 class="site-title">The Lamp Times</h1>
+                <p class="site-tagline">Illuminating News for Discerning Readers</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="category.html?category=Politics">Politics</a></li>
+                    <li><a href="category.html?category=Business">Business</a></li>
+                    <li><a href="category.html?category=Technology">Technology</a></li>
+                    <li><a href="category.html?category=Arts">Arts</a></li>
+                    <li><a href="category.html?category=Opinion">Opinion</a></li>
+                    <li><a href="profile.html" id="profile-link" class="hidden">My Profile</a></li>
+                    <li><a href="auth.html" id="auth-link">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main home-page">
+        <div class="container">
+            <section class="featured-article">
+                <article id="featured-article-container" class="article-card featured">
+                    <!-- Featured article will be loaded dynamically from JS -->
+                    <div class="article-content">
+                        <h2 class="article-title">Renewable Energy Breakthrough Promises Sustainable Future</h2>
+                        <p class="article-meta">By James Anderson | May 15, 2024</p>
+                        <p class="article-excerpt">Scientists have developed a new solar panel technology that doubles efficiency while cutting production costs by 30%, potentially revolutionizing the renewable energy landscape.</p>
+                        <a href="article.html?id=1" class="read-more">Continue Reading</a>
+                    </div>
+                </article>
+            </section>
+
+            <div class="two-column-layout">
+            <section class="main-articles">
+                <h3 class="section-title">Latest News</h3>
+                <div class="articles-grid" id="main-articles-container">
+                    <!-- CLS Fix: Add skeleton loaders for articles -->
+                    <div class="skeleton-card">
+                        <div class="skeleton-image skeleton-loader"></div>
+                        <div class="skeleton-title skeleton-loader"></div>
+                        <div class="skeleton-text skeleton-loader"></div>
+                        <div class="skeleton-text skeleton-loader"></div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-image skeleton-loader"></div>
+                        <div class="skeleton-title skeleton-loader"></div>
+                        <div class="skeleton-text skeleton-loader"></div>
+                        <div class="skeleton-text skeleton-loader"></div>
+                    </div>
+                    <!-- Articles will be loaded from JS -->
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="section-title">Most Read</h3>
+                    <ul class="popular-articles" id="popular-articles-container">
+                        <!-- CLS Fix: Add skeleton loaders for popular articles -->
+                        <li class="skeleton-text skeleton-loader"></li>
+                        <li class="skeleton-text skeleton-loader"></li>
+                        <li class="skeleton-text skeleton-loader"></li>
+                        <!-- Popular articles will be loaded from JS -->
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="section-title">Opinion</h3>
+                    <div class="opinion-articles" id="opinion-articles-container">
+                        <!-- CLS Fix: Add skeleton loaders for opinion articles -->
+                        <div class="skeleton-card">
+                            <div class="skeleton-title skeleton-loader"></div>
+                            <div class="skeleton-text skeleton-loader"></div>
+                        </div>
+                        <!-- Opinion articles will be loaded from JS -->
+                    </div>
+                </div>
+            </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-minimal">
+                <div class="footer-info">
+                    <span>The Lamp Times</span> |
+                    <span>123 News Street, Mediaville</span> |
+                    <span>contact@Lamp Timess.com</span>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2024 The Lamp Times. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/articles.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bookmarks.js"></script>
+</body>
+</html>

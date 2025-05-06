@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Replace with your article title",
+    "author": "Replace with author name",
+    "category": "Politics",
+    "excerpt": "Replace with a brief summary (1-2 sentences)",
+    "content": [
+      "Replace with first paragraph of your article",
+      "Replace with second paragraph of your article",
+      "Add more paragraphs as needed"
+    ]
+  },
+  {
+    "title": "Example Technology Article",
+    "author": "Tech Writer",
+    "category": "Technology",
+    "excerpt": "A brief overview of the latest technology trends",
+    "content": [
+      "First paragraph discussing technology trends",
+      "Second paragraph with more details",
+      "Conclusion paragraph"
+    ]
+  },
+  {
+    "title": "Business Strategy Example",
+    "author": "Business Analyst",
+    "category": "Business",
+    "excerpt": "Analysis of current business strategies in the market",
+    "content": [
+      "Introduction to business strategies",
+      "Analysis of market trends",
+      "Recommendations for businesses"
+    ]
+  },
+  {
+    "title": "Arts and Culture Review",
+    "author": "Culture Critic",
+    "category": "Arts",
+    "excerpt": "A review of the latest cultural events and artistic expressions",
+    "content": [
+      "Overview of recent cultural events",
+      "Analysis of artistic trends",
+      "Impact on society and culture"
+    ]
+  },
+  {
+    "title": "Opinion: The Future of Education",
+    "author": "Education Expert",
+    "category": "Opinion",
+    "excerpt": "Thoughts on how education systems should evolve",
+    "content": [
+      "Current challenges in education",
+      "Proposed changes to educational systems",
+      "Benefits of implementing these changes"
+    ]
+  },
+  {
+    "title": "Health and Wellness Guide",
+    "author": "Health Professional",
+    "category": "Health",
+    "excerpt": "Essential tips for maintaining good health and wellness",
+    "content": [
+      "Importance of physical activity",
+      "Nutrition and diet considerations",
+      "Mental health practices"
+    ]
+  },
+  {
+    "title": "Environmental Conservation Efforts",
+    "author": "Environmental Scientist",
+    "category": "Environment",
+    "excerpt": "Overview of current conservation efforts and their impact",
+    "content": [
+      "Current state of environmental conservation",
+      "Successful conservation projects",
+      "How individuals can contribute"
+    ]
+  },
+  {
+    "title": "Community Spotlight: Local Heroes",
+    "author": "Community Reporter",
+    "category": "Community",
+    "excerpt": "Highlighting individuals making a difference in our community",
+    "content": [
+      "Introduction to community heroes",
+      "Stories of impact and change",
+      "How to get involved in community efforts"
+    ]
+  }
+]

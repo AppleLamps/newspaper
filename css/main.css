@@ -1,0 +1,123 @@
+/*
+ * main.css - Core styles and CSS reset
+ * Lamp Times Newspaper Website
+ */
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color Variables */
+    --color-background: #FFFDF9; /* Brighter background for better contrast */
+    --color-text: #1a1a1a;
+    --color-text-light: #444444;
+    --color-accent: #700000; /* Darkened red accent for better accessibility */
+    --color-border: #d8cdb9;
+    --color-link: #700000;
+    --color-link-hover: #500000;
+    --color-header: #FFFDF9; /* Match background for a more unified look */
+    --color-footer: #f5eee0;
+    --color-card-hover: #fff; /* Card hover background */
+    --color-shadow: rgba(0, 0, 0, 0.08); /* Shadow color for hover effects */
+    --color-paper-shadow: rgba(0, 0, 0, 0.05); /* Subtle shadow for paper-like depth */
+    --color-paper-shadow-darker: rgba(0, 0, 0, 0.08); /* Slightly darker shadow for emphasis */
+
+    /* Typography Variables */
+    --font-heading: 'Playfair Display', 'Times New Roman', serif;
+    --font-body: 'Libre Baskerville', 'Georgia', serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+
+    /* Animation Variables */
+    --transition-speed: 0.3s;
+}
+
+html {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make main content grow to push footer down */
+.site-main {
+    flex: 1;
+}
+
+/* CLS Fix: Ensure images have proper dimensions to prevent layout shifts */
+img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+    width: 100%; /* Make images take full width of their container */
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease, text-decoration var(--transition-speed) ease, border-bottom var(--transition-speed) ease;
+    position: relative;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+/* Subtle underline effect for links */
+a:not(.btn):not(.nav-link):not(.site-title):hover {
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-link-hover);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 16px;
+    }
+
+    .container {
+        padding: 0 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 15px;
+    }
+}

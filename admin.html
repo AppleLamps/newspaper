@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Lamp Times</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- Google Fonts for newspaper style typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="date">May 15, 2024</div>
+                <div class="weather">Partly Cloudy, 72°F</div>
+            </div>
+            <div class="masthead">
+                <h1 class="site-title">The Lamp Times</h1>
+                <p class="site-tagline">Admin Dashboard</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="category.html?category=Politics">Politics</a></li>
+                    <li><a href="category.html?category=Business">Business</a></li>
+                    <li><a href="category.html?category=Technology">Technology</a></li>
+                    <li><a href="category.html?category=Arts">Arts</a></li>
+                    <li><a href="category.html?category=Opinion">Opinion</a></li>
+                    <li><a href="admin.html" class="active">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <div id="login-section" class="admin-section">
+                <h2 class="section-title">Admin Login</h2>
+                <p class="admin-notice">This area is restricted to administrators only. You must first sign in through the <a href="auth.html">authentication page</a> with a user account, then enter the admin password here to gain administrative privileges.</p>
+                <form id="login-form" class="admin-form">
+                    <div class="form-group">
+                        <label for="password">Admin Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Login as Administrator</button>
+                </form>
+            </div>
+
+            <div id="admin-dashboard" class="admin-section hidden">
+                <h2 class="section-title">Article Management</h2>
+
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="add-article">Add Article</button>
+                    <button class="tab-btn" data-tab="bulk-upload">Bulk Upload</button>
+                    <button class="tab-btn" data-tab="manage-articles">Manage Articles</button>
+                </div>
+
+                <div id="add-article" class="tab-content">
+                    <h3>Add New Article</h3>
+                    <form id="article-form" class="admin-form">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" name="author" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select a category</option>
+                                <option value="Politics">Politics</option>
+                                <option value="Business">Business</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Opinion">Opinion</option>
+                                <option value="Health">Health</option>
+                                <option value="Environment">Environment</option>
+                                <option value="Community">Community</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="excerpt">Excerpt</label>
+                            <textarea id="excerpt" name="excerpt" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content">Full Content</label>
+                            <p class="form-help">Enter each paragraph separated by a blank line.</p>
+                            <textarea id="content" name="content" rows="10" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Add Article</button>
+                    </form>
+                </div>
+
+                <div id="bulk-upload" class="tab-content hidden">
+                    <h3>Bulk Upload Articles</h3>
+                    <form id="bulk-upload-form" class="admin-form">
+                        <div class="form-group">
+                            <label for="json-file">Upload JSON File</label>
+                            <input type="file" id="json-file" name="json-file" accept=".json" required>
+                            <p class="form-help">Upload a JSON file containing multiple articles. Each article must have title, author, category, excerpt, and content fields. Valid categories are: Politics, Business, Technology, Arts, Opinion, Health, Environment, Community. <a href="empty-template.json" download>Download basic template</a>, <a href="article-template.json" download>download comprehensive template</a> or <a href="sample-articles.json" download>download sample with content</a></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>JSON Format Example:</label>
+                            <pre class="json-example">
+[
+  {
+    "title": "Article Title 1",
+    "author": "Author Name",
+    "category": "Politics",
+    "excerpt": "Brief summary of the article",
+    "content": ["Paragraph 1", "Paragraph 2", "Paragraph 3"]
+  },
+  {
+    "title": "Article Title 2",
+    "author": "Another Author",
+    "category": "Technology",
+    "excerpt": "Another brief summary",
+    "content": ["Paragraph 1", "Paragraph 2"]
+  }
+]</pre>
+                        </div>
+
+                        <div id="upload-results" class="hidden">
+                            <h4>Upload Results</h4>
+                            <div class="upload-summary"></div>
+                            <div class="upload-details"></div>
+                        </div>
+
+                        <button type="submit" class="btn">Upload Articles</button>
+                    </form>
+                </div>
+
+                <div id="manage-articles" class="tab-content hidden">
+                    <h3>Manage Existing Articles</h3>
+                    <div class="article-filters">
+                        <label for="filter-category">Filter by Category:</label>
+                        <select id="filter-category">
+                            <option value="">All Categories</option>
+                            <option value="Politics">Politics</option>
+                            <option value="Business">Business</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Opinion">Opinion</option>
+                            <option value="Health">Health</option>
+                            <option value="Environment">Environment</option>
+                            <option value="Community">Community</option>
+                        </select>
+                    </div>
+
+                    <div class="articles-table-container">
+                        <table class="articles-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="articles-list">
+                                <!-- Articles will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-minimal">
+                <div class="footer-info">
+                    <span>The Lamp Times</span> |
+                    <span>123 News Street, Mediaville</span> |
+                    <span>contact@Lamp Timess.com</span>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2024 The Lamp Times. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

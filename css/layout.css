@@ -1,0 +1,400 @@
+/*
+ * layout.css - Layout styles
+ * Lamp Times Newspaper Website
+ */
+
+/* CLS Prevention - Global Layout Stabilization */
+.container {
+    contain: layout;
+}
+
+/* CLS Fix: Apply content-visibility for offscreen content */
+.content-deferred {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px; /* Reserve approximate space */
+}
+
+/* CLS Fix: Add size containment to prevent children resizing parent */
+.size-contained {
+    contain: size layout;
+}
+
+/* Header Layout */
+.site-header {
+    background-color: var(--color-header);
+    border-bottom: 2px solid var(--color-border);
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px var(--color-paper-shadow);
+    position: relative;
+    z-index: 10; /* Ensure the header shadow appears above content */
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 0.75rem;
+}
+
+.masthead {
+    padding: 1.25rem 0;
+    border-bottom: 3px double var(--color-border);
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    /* CLS Fix: Set a fixed height for the navigation to prevent layout shifts */
+    height: 40px;
+}
+
+.main-nav li {
+    margin: 0;
+    padding: 0 1.2rem;
+    position: relative;
+    /* CLS Fix: Set a fixed width for each navigation item */
+    min-width: 80px;
+    text-align: center;
+}
+
+.main-nav li:not(:last-child):after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background-color: var(--color-border);
+}
+
+.main-nav a {
+    display: block;
+    padding: 0.4rem 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+}
+
+.main-nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--color-accent);
+    transition: all var(--transition-speed) ease;
+    transform: translateX(-50%);
+}
+
+.main-nav a:hover:after,
+.main-nav a.active:after {
+    width: 70%;
+}
+
+.main-nav a.active {
+    color: var(--color-link-hover);
+    font-weight: 700;
+}
+
+/* CLS Fix: Rather than using display:none, use visibility to maintain layout */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+}
+
+/* Main Content Layout */
+.site-main {
+    padding: 1.5rem 0 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 300px); /* Ensure minimum height to push footer down */
+    /* CLS Fix: Add containment */
+    contain: content;
+}
+
+/* Featured Article */
+.featured-article {
+    margin-bottom: 0.5rem; /* Further reduced margin to close the gap completely */
+    padding: 1rem 1rem 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px var(--color-paper-shadow);
+    border-radius: 3px;
+}
+
+.article-card.featured {
+    padding-bottom: 1rem;
+    box-shadow: none; /* Remove shadow from featured article card since the container has one */
+}
+
+/* Featured article with image */
+.article-card.featured.with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.article-card.featured.with-image .article-image {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .article-card.featured.with-image {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Two Column Layout */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+    padding-top: 0; /* Removed padding to eliminate any gap */
+}
+
+/* Articles Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    column-rule: 1px solid var(--color-border);
+    /* CLS Fix: Increase reserved space for dynamically loaded articles */
+    min-height: 800px; /* Increased minimum height for content */
+    contain: layout style;
+}
+
+.article-card {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    /* CLS Fix: Set a consistent height for article cards */
+    min-height: 200px;
+}
+
+/* Sidebar */
+.sidebar-section {
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    /* CLS Fix: Reserve space for dynamically loaded sidebar content */
+    min-height: 200px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px var(--color-paper-shadow);
+    border-radius: 2px;
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+}
+
+.popular-articles {
+    list-style: none;
+    padding: 0;
+    /* CLS Fix: Reserve space for popular articles list */
+    min-height: 200px;
+}
+
+.popular-articles li {
+    padding: 0.6rem 0;
+    border-bottom: 1px dotted var(--color-border);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+/* CLS Fix: Reserve space for opinion articles */
+.opinion-articles {
+    min-height: 200px;
+}
+
+/* Article Page Layout */
+.article-page .container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 3rem;
+    padding-top: 1.5rem;
+}
+
+/* CLS Fix: Reserve space for related articles */
+#related-articles-container {
+    min-height: 300px;
+}
+
+.full-article {
+    padding-right: 2rem;
+    /* CLS Fix: Reserve space for article content to prevent layout shift */
+    min-height: 600px; /* Increased minimum height for content */
+    contain: layout;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px var(--color-paper-shadow);
+    margin-bottom: 2rem;
+}
+
+/* CLS Fix: Add loading placeholder styles */
+.article-loading {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* CLS Fix: Add loading article class */
+.loading-article {
+    min-height: 500px;
+    position: relative;
+}
+
+/* Article sidebar styling */
+.article-sidebar {
+    position: relative;
+}
+
+.related-articles {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px var(--color-paper-shadow);
+    position: sticky;
+    top: 2rem;
+}
+
+/* Related article cards */
+.related-card {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.related-card:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.related-card .article-image {
+    flex: 0 0 100px;
+    height: 75px;
+    margin-bottom: 0;
+}
+
+/* CLS Fix: Add loading article animation */
+.loading-article::before {
+    content: "Loading article...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* Footer Layout */
+.site-footer {
+    background-color: var(--color-footer);
+    border-top: 1px solid var(--color-border);
+    padding: 1.5rem 0 1rem;
+    margin-top: 6rem; /* Further increased spacing above footer */
+    position: relative;
+}
+
+/* Add subtle shadow above footer */
+.site-footer:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.02));
+}
+
+.footer-minimal {
+    text-align: center;
+}
+
+.footer-info {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.footer-info span {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    font-style: italic;
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 992px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .article-page .container {
+        grid-template-columns: 1fr;
+    }
+
+    .full-article {
+        padding-right: 0;
+    }
+
+    .footer-info span {
+        display: block;
+        margin: 0.3rem 0;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+    }
+
+    .main-nav li {
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}

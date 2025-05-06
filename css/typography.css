@@ -1,0 +1,216 @@
+/*
+ * typography.css - Typography styles
+ * Lamp Times Newspaper Website
+ */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1rem;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Blockquotes */
+blockquote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2rem;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: var(--color-text-light);
+}
+
+/* Site Title */
+.site-title {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: -0.03em;
+    margin: 0;
+    line-height: 1;
+    text-transform: none;
+    color: var(--color-text);
+}
+
+.site-tagline {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+    color: var(--color-text-light);
+    margin-top: 0.3rem;
+    letter-spacing: 0.01em;
+}
+
+/* Section Titles */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    position: relative;
+}
+
+/* Add decorative line under section titles */
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-accent);
+}
+
+/* Article Typography */
+.article-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.article-meta {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.8rem;
+    font-style: italic;
+}
+
+.article-excerpt {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-body);
+}
+
+.featured .article-title {
+    font-size: 2rem;
+}
+
+.read-more {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Full Article Typography */
+.full-article .article-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+}
+
+.full-article .article-meta {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-light);
+    border-bottom: 1px dotted var(--color-border);
+    padding-bottom: 1rem;
+}
+
+.full-article .article-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    hyphens: auto;
+    color: var(--color-text);
+}
+
+.full-article .article-lead {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+    font-style: italic;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2.5rem;
+    }
+
+    .featured .article-title {
+        font-size: 1.8rem;
+    }
+
+    .full-article .article-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .featured .article-title {
+        font-size: 1.5rem;
+    }
+
+    .full-article .article-title {
+        font-size: 1.75rem;
+    }
+}
